@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Learning to Leap: Humanoid Robot Box Climbing with Reinforcement Learning">
+  <meta name="keywords" content="Diffusion Policy; Manipulation; Generalization">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <title>Nerfies: Deformable Neural Radiance Fields</title> -->
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/file_1.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title"> 
+            <span style="background: -webkit-linear-gradient(left, rgb(91, 255, 206) , rgb(255, 66, 107)); -webkit-background-clip: text; color: transparent;">
+              Learning to Leap
+            </span>: 
+              <span style="color: rgb(91, 255, 206);">H</span><span>umanoid</span>
+              <span style="color: rgb(91, 255, 206);">R</span><span>obot</span>
+            <br>
+            Box 
+            <span style="color: rgb(255, 66, 107);">C</span><span>limbing with</span> 
+            <span style="color: rgb(255, 66, 107);">R</span></span><span>einforcement</span> 
+            <span style="color: rgb(255, 66, 107);">L</span></span><span>earning</span>
+          </h1>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!--/ Abstract. -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>·
+        <div class="content has-text-justified">
+          <p>
+            The ability for humanoid robots to perform complex tasks, such as box climbing, while maintaining balance, 
+            is a critical challenge in robotics. In this project, we propose Learning to leap
+            a novel approach using reinforcement learning (RL) to enable a humanoid robot, H1, to autonomously climb boxes 
+            of varying heights (15-40 cm) while ensuring stability and balance. Our method combines NVIDIA Isaac Gym to simulate 
+            realistic environments and generate diverse training data, along with a custom-designed PPO algorithm for policy optimization.
+             The robot`s joint is controlled through a PD controller, ensuring smooth motion and efficient adaptation to different box heights. 
+             Preliminary results demonstrate that our RL-based system can effectively train the humanoid robot to perform dynamic 
+             box climbing while maintaining a high level of balance, opening the door for future applications in agile humanoid robotics.
+          </p>
+        </div>
+      </div>
+    </div>
+</section> 
+
+<!-- Paper video. -->
+<!-- <section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Video</h2>
+        <div class="publication-video">
+          <iframe src="https://www.bilibili.com/video/BV12B1yYREqd/?spm_id_from=333.1007.tianma.1-1-1.click"
+                  frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section> -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 border-b-1px mb-4">Overview</h2>
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-centered">
+          <figure class="image">
+            <img src="./static/images/ReACT.png"  class="image-size">
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            We wish to train a single neural network that goes directly from raw depth and onboard sensing to joint angle commands.
+             To train adaptive motor policies, recent approaches use two-phase student
+            teacher training. Later works introduce regularized online adaptation (ROA) to
+            collapse this into a single phase. To train the vision backbone, a similar teacher-student framework is
+            employed where a teacher trained with privileged scandots information is distilled to a
+            student with access to depth. In this paper, we use ROA for adaptation and two-phase training for the
+            vision backbone but introduce key modifications for the challenging task of extreme parkour.
+            First, since parkour requires diverse behaviors to traverse different obstacles it is challenging to
+            engineer reward functions specific to each. We present a simple, unified reward formulation from
+            which diverse behaviors emerge automatically and are perfectly adapted to the terrain geometry.
+            Second, during parkour the robot needs to be able to choose its own direction as opposed to following
+            human-specified ones. For instance, when jumping across tilted ramps, it needs to jump on the first
+            ramp at a very specific angle and then change directions immediately which is impossible for a human
+            to provide. Instead, we provide directions in phase 1 using suitably placed waypoints and in phase 2
+            we train a network to predict these oracle heading directions from depth information.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <h2 class="title is-3 border-b-1px mb-4">Architecture</h2>
+    <div class="container is-max-widescreen">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths has-text-centered">
+          <figure class="image">
+            <img src="./static/images/overview.png"  class="image-size">
+          </figure>
+        </div>
+      </div>
+    </div>
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <div class="content has-text-justified">
+          <p>
+            The proposed system leverages reinforcement learning (RL) to train a humanoid robot, H1, to autonomously climb boxes of varying heights (15–40 cm) while maintaining balance and stability. The system integrates Isaac Gym as the simulation platform, a powerful tool for large-scale parallel RL training, with the Proximal Policy Optimization (PPO) algorithm to optimize the robot’s behavior. The goal is to develop a robust control policy that allows the robot to perform dynamic box climbing by using visual inputs and whole-body control.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container is-max-desktop">
+  <h2 class="title is-3 border-b-1px mb-4">Bimanual Teleoperation</h2>
+  <br>
+  <section class="hero is-light is-small">
+    <div class="hero-body">    
+      <div class="container">
+        <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-steve">
+            <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/plain_terrain.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-chair-tp">
+            <video poster="" id="chair-tp" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/step_up_down_terrain2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-shiba">
+            <video poster="" id="shiba" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/gap terrain.mp4"
+                      type="video/mp4">
+            </video>
+            <!-- <div class="video-speed">1x</div> -->
+          </div>
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/hurdle_terrain.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/parkour_terrain.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/sml_parkour_terrain.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/failure case1.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+</div>
+
+
+<!-- 
+<div class="container is-max-desktop">
+  <section class="hero is-light is-small">
+    <div class="hero-body">    
+      <div class="columns is-centered">
+        <div class="columns is-multiline is-variable is-2">
+          <div class="column is-12">
+            <video style="width:100%; height:auto;" controls muted loading="lazy" autoplay loop playsinline>
+              <source src="./static/videos/Sim/simplay.mp4" type="video/mp4">
+            </video>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <br>
+</div> -->
+
+
+
+<footer class="footer">
+    <div class="columns is-centered">
+        <div class="content">
+          <p>
+            This website is borrowed from <a href="https://github.com/afforddp/afforddp.github.io">AffordDP</a>.
+          </p>
+        </div>
+    </div>
+</footer>
+
+</body>
+</html>
