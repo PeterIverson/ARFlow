@@ -74,17 +74,17 @@
     <!-- Abstract. -->
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-3">Abstract</h2>·
+        <h2 class="title is-3">Abstract</h2>
         <div class="content has-text-justified">
           <p>
-            The ability for humanoid robots to perform complex tasks, such as box climbing, while maintaining balance, 
-            is a critical challenge in robotics. In this project, we propose Learning to leap
+            In this project, we propose Learning to leap,
             a novel approach using reinforcement learning (RL) to enable a humanoid robot, H1, to autonomously climb boxes 
             of varying heights (15-40 cm) while ensuring stability and balance. Our method combines NVIDIA Isaac Gym to simulate 
             realistic environments and generate diverse training data, along with a custom-designed PPO algorithm for policy optimization.
-             The robot`s joint is controlled through a PD controller, ensuring smooth motion and efficient adaptation to different box heights. 
-             Preliminary results demonstrate that our RL-based system can effectively train the humanoid robot to perform dynamic 
-             box climbing while maintaining a high level of balance, opening the door for future applications in agile humanoid robotics.
+            The robot`s joint is controlled through a PD controller, ensuring smooth motion and efficient adaptation to different box heights. 
+            Preliminary results demonstrate that our RL-based system can effectively train the humanoid robot to perform dynamic 
+            box climbing while maintaining a high level of balance, opening the door for future applications in agile humanoid robotics.
+            In Addition, we are delighted to find that the strategy can deal with almost all kinds of terrain, including hurdle terrain and even more complex Parkour terrain.
           </p>
         </div>
       </div>
@@ -114,7 +114,7 @@
       <div class="columns is-centered">
         <div class="column is-four-fifths has-text-centered">
           <figure class="image">
-            <img src="./static/images/ReACT.png"  class="image-size">
+            <img src="./static/images/L2L.png"  class="image-size">
           </figure>
         </div>
       </div>
@@ -170,8 +170,17 @@
 </section>
 
 <div class="container is-max-desktop">
-  <h2 class="title is-3 border-b-1px mb-4">Bimanual Teleoperation</h2>
+  <h2 class="title is-3 border-b-1px mb-4">Various Terrain Parkour</h2>
   <br>
+  <div class="columns is-centered has-text-centered"></div>
+    <div class="column is-four-fifths">
+      <div class="content has-text-justified">
+        <p>
+          In addition to leap terrain, we were pleasantly surprised to find that the policy can deal with almost all kinds of terrain, including hurdle terrain and even more complex Parkour terrain, which shows that our strategy has generalization ability for almost all kinds of terrain.
+        </p>
+      </div>
+    </div>
+  </div>
   <section class="hero is-light is-small">
     <div class="hero-body">    
       <div class="container">
@@ -215,18 +224,33 @@
                       type="video/mp4">
             </video>
           </div>
-          <div class="item item-fullbody">
-            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
-              <source src="./media/failure case1.mp4"
-                      type="video/mp4">
-            </video>
-          </div>
         </div>
       </div>
     </div>
   </section>
   <br>
 </div>
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3 border-b-1px mb-4">Failure Cases</h2>
+        <div class="hero-body">    
+          <div class="container">
+            <div id="results-carousel" class="carousel results-carousel">
+              <div class="item item-fullbody">
+                <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+                  <source src="./media/failure case1.mp4"
+                          type="video/mp4">
+                </video>
+              </div>
+            <div>
+          <div>
+        <div>
+      </div>
+    </div>
+</section> 
 
 
 <!-- 
