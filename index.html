@@ -48,18 +48,12 @@
       <div class="columns is-centered">
         <div class="column has-text-centered">
           <h1 class="title is-1 publication-title"> 
-            <span style="background: -webkit-linear-gradient(left, rgb(91, 255, 206) , rgb(255, 66, 107)); -webkit-background-clip: text; color: transparent;">
-              Learning to Leap
-            </span>: 
-              <span style="color: rgb(91, 255, 206);">H</span><span>umanoid</span>
-              <span style="color: rgb(91, 255, 206);">R</span><span>obot</span>
+            <span style="background: -webkit-linear-gradient(left, rgb(50, 134, 199) , rgb(243, 50, 50)); -webkit-background-clip: text; color: transparent;">
+              Learning to Leap</span>
+              <span>: Humanoid Robot</span>
             <br>
-            Box 
-            <span style="color: rgb(255, 66, 107);">C</span><span>limbing with</span> 
-            <span style="color: rgb(255, 66, 107);">R</span></span><span>einforcement</span> 
-            <span style="color: rgb(255, 66, 107);">L</span></span><span>earning</span>
+            Box Climbing with Reinforcement Learning
           </h1>
-
           </div>
         </div>
       </div>
@@ -114,7 +108,7 @@
       <div class="columns is-centered">
         <div class="column is-four-fifths has-text-centered">
           <figure class="image">
-            <img src="./static/images/ReACT.png"  class="image-size">
+            <img src="./static/images/L2L.png"  class="image-size">
           </figure>
         </div>
       </div>
@@ -152,7 +146,7 @@
       <div class="columns is-centered">
         <div class="column is-four-fifths has-text-centered">
           <figure class="image">
-            <img src="./static/images/overview.png"  class="image-size">
+            <img src="./media/framework.png"  class="image-size">
           </figure>
         </div>
       </div>
@@ -170,12 +164,35 @@
 </section>
 
 <div class="container is-max-desktop">
-  <h2 class="title is-3 border-b-1px mb-4">Bimanual Teleoperation</h2>
+  <h2 class="title is-3 border-b-1px mb-4">Diverse Terrain Parkour (With A Failure Case)</h2>
   <br>
+  <div class="columns is-centered has-text-centered">
+    <div class="column is-four-fifths">
+      <div class="content has-text-justified">
+        <p>
+          As shown, our policy has good generalization and success rate in a variety of complex Parkour terrain,
+           which shows that our policy based on scandot distillation has good generalization ability for terrain.
+        </p>
+        <p>
+          The last video shows that our policy still has the possibility of failure in more complex terrain.
+        </p>
+        <p>
+          The red dot indicates the current target point, and the blue dot indicates the target point that has passed or the target point in the future. 
+           When passing the current target point, the red dot will turn green once, and then the policy will advance to the next target point.
+        </p>
+      </div>
+    </div>
+  </div>  
   <section class="hero is-light is-small">
-    <div class="hero-body">    
+    <div class="hero-body">  
       <div class="container">
         <div id="results-carousel" class="carousel results-carousel">
+          <div class="item item-fullbody">
+            <video poster="" id="fullbody" autoplay controls muted loop playsinline height="100%">
+              <source src="./media/real2.mp4"
+                      type="video/mp4">
+            </video>
+          </div>
           <div class="item item-steve">
             <video poster="" id="steve" autoplay controls muted loop playsinline height="100%">
               <source src="./media/plain_terrain.mp4"
